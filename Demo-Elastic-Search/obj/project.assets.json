@@ -737,11 +737,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\projects\\Elastic-Search-Demo\\Demo-Elastic-Search\\Demo-Elastic-Search.csproj",
+      "projectUniqueName": "C:\\projects\\Elastic-Search\\Demo-Elastic-Search\\Demo-Elastic-Search.csproj",
       "projectName": "Demo-Elastic-Search",
-      "projectPath": "C:\\projects\\Elastic-Search-Demo\\Demo-Elastic-Search\\Demo-Elastic-Search.csproj",
+      "projectPath": "C:\\projects\\Elastic-Search\\Demo-Elastic-Search\\Demo-Elastic-Search.csproj",
       "packagesPath": "C:\\Users\\ronaks\\.nuget\\packages\\",
-      "outputPath": "C:\\projects\\Elastic-Search-Demo\\Demo-Elastic-Search\\obj\\",
+      "outputPath": "C:\\projects\\Elastic-Search\\Demo-Elastic-Search\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
