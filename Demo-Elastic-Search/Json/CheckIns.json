@@ -1,0 +1,22 @@
+ {     
+	  "_type": "Checkins",
+      "address": "Manjalpur 1",
+	  "user" : "ronak", //doubt
+	  
+	  "additional_id": "16f71517-1124-43b7-bebe-6387999a87bd",
+      "additional_jobid": "16f71517-1124-43b7-bebe-6387999a87bd",
+	  "additional_jobtitle": "Job 1",
+	  "additional_teamId": "16f71517-1124-43b7-bebe-6387999a87bd",
+	  "additional_teamname": "Corpac",
+	  "additional_teamicon": "https://devapps.visualogyx.com/team-icon.png",
+	  
+      "additional_createdId":"16f71517-1124-43b7-bebe-6387999a87bd",
+	  "additional_createdBy":"ABC", //doubt
+	  "additional_updatedId":"16f71517-1124-43b7-bebe-6387999a87bd",
+	  "additional_updatedBy":"XYZ",
+      "additional_createddatetime" : "2017-04-07T12:20:00"
+	  "additional_updateddatetime" : "2017-04-07T12:20:00",	
+
+      "additional_lat" : "20.232",
+	  "additional_long" : "23.251",	  
+  }

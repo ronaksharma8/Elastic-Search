@@ -1,0 +1,22 @@
+{   
+	  "type": "Mail comments",
+	  "message": "mail message 1",	  
+	  "fromEmail" : "abc1@mailinator.com",	  
+	  "cc" : ['abc1@mailinator.com','abc2@mailinator.com'],
+	  "attachments":[array of file names],
+	  "subject" : "Subject_Mail_Comments",
+	  
+	  "additional_id": "16f71517-1124-43b7-bebe-6387999a87bd",
+      "additional_jobId": "16f71517-1124-43b7-bebe-6387999a87bd",
+	  "additional_jobTitle": "Job 1",
+	  "additional_teamId": "Corpac",
+	  "additional_teamName": "Corpac",
+	  "additional_teamIcon": "https://devapps.visualogyx.com/team-icon.png",
+	  
+	  "additional_fromUserId" : "abc1@mailinator.com",
+	  "additional_reportGeneratedById":"16f71517-1124-43b7-bebe-6387999a87bd",
+	  "additional_reportGeneratedBy":"ABC",
+	  
+      "additional_createdDateTime" : "2017-04-07",
+	  "additional_updatedDateTime" : "2017-04-07"
+  }

@@ -1,0 +1,67 @@
+{
+  "mappings": {
+    "form": {
+      "properties": {
+		"type": {
+          "type": "text",
+		  "index" : "false"
+        },
+		"title": {
+          "type": "text"
+        },
+        "description": {
+          "type": "text"
+        },
+		"teamName": {
+          "type": "text"
+        },
+        "formType": {
+          "type": "text"
+        },
+		"formScope": {
+          "type": "text"
+        },		
+		"additional_id": {
+          "type": "text",
+          "index":"false"
+        },
+        "additional_teamId": {
+          "type": "text",
+          "index": "false"
+        },
+        "additional_teamIcon": {
+          "type": "text",
+          "index": "false"
+        },        
+		"additional_createdById": {
+          "type": "text",
+          "index": "false"
+        },
+        "additional_createdBy": {
+          "type": "text",
+          "index": "false"
+        },
+        "additional_updatedById": {
+          "type": "text",
+          "index": "false"
+        },
+        "additional_updatedBy": {
+          "type": "text",
+          "index": "false"
+        },
+        "additional_createdDateTime": {
+          "type": "date",
+          "index": "false"
+        },
+        "additional_updatedDateTime": {
+          "type": "date",
+          "index": "false"
+        },
+		"additional_icon": {
+          "type": "text",
+          "index": "false"
+        }
+    }
+  }
+}
+}

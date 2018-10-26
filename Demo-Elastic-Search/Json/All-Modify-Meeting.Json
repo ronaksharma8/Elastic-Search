@@ -1,0 +1,146 @@
+[
+  {
+    "fields": {
+	  "_type" : "job"
+      "title": "Job 1",
+      "description": "Test Job Description",      
+      "address": " E 90 Saujanya Society Opp Bhavan School",
+	  "teamname": "Corpac",
+	  "jobStatus": "inprogress",
+	  "contributors" : ['abc','asd'],
+	  "viewers" : ['abc','asd'],
+	  "inspectors" : ['abc','asd'],
+	  "id":"16f71517-1124-43b7-bebe-6387999a87bd",
+	  "teamId":"",
+	  "userId":"",
+	  "updatedBy":"",
+      "additional_teamicon": "3d rotation",
+	  "additional_updateddatetime" : "2017-04-07T12:20:00",
+    },
+    "id": "16f71517-1124-43b7-bebe-6387999a87bd",
+    "type": "add"
+  },
+  {
+    "fields": {
+      "_type": "Form",      
+      "title": "Form 1",
+	  "description": "Form description 1",	
+	  "tabNames":['prop 1','prop 2','prop 3'],
+	  "sectionNames":['prop 1','prop 2','prop 3'],
+	  "propertyNames":['prop 1','prop 2','prop 3'],
+	  "fieldPlaceholders":['prop 1','prop 2','prop 3'],	 
+	  "teamname": "Corpac",	  
+	  "id": "16f71517-1124-43b7-bebe-6387999a87bd",
+	  "teamId": "16f71517-1124-43b7-bebe-6387999a87be",
+	  "additional_teamicon": "3d rotation", //it should be url
+	  "updateddatetime" : "2017-04-07T12:20:00"
+      "formtype": "4", //use string
+	  "formscope": "4",	  //use string,
+	  "userId":"created by",
+	  "updatedBy":"",
+	  "icon": "3D Rotation",
+    },
+    "id": "3e00b4f2-b334-4717-8574-4f135e4deff7",
+    "type": "add"
+  },
+  {
+    "fields": {
+      "_type": "JobPage",      
+      "title": "Job Page 1",	  
+	  "tabNames":['prop 1','prop 2','prop 3'],
+	  "sectionNames":['prop 1','prop 2','prop 3'],
+	  "propertyNames":['prop 1','prop 2','prop 3'],
+	  "fieldPlaceholders":['prop 1','prop 2','prop 3'],	 
+	  "fields":["tab1.sec1.prop1..value1","tab1.sec1.prop1.field1","tab2.sec2.prop3.field4"],
+	  "fieldsInJson": {
+		"tab": "tab1",
+		"section": "Xyz",
+		"field": "OD",
+		"value": "OD"
+	  }	  
+	  "teamname": "Corpac",
+	  "additional_id": "16f71517-1124-43b7-bebe-6387999a87bd",
+      "additional_jobid": "16f71517-1124-43b7-bebe-6387999a87bd",
+	  "additional_jobtitle": "Job 1",
+	  "additional_teamicon": "3d rotation",
+	  "updateddatetime" : "2017-04-07T12:20:00"
+      "formtype": "4",
+	  //assets specific
+	  "data":["col1.value","col2 value","col3 value"],
+	  "columns":["col1","col2","col3","col4"]
+    },
+    "id": "3e00b4f2-b334-4717-8574-4f135e4deff7",
+    "type": "add"
+  },
+  {
+    "fields": {
+	 "_type": "Mail comments",
+	  "message": "mail message 1",
+	  "additional_id": "16f71517-1124-43b7-bebe-6387999a87bd",
+      "additional_jobid": "16f71517-1124-43b7-bebe-6387999a87bd",
+	  "additional_jobtitle": "Job 1",
+	  "additional_teamname": "Corpac",
+	  "additional_teamicon": "3d rotation",
+	  "updateddatetime" : "2017-04-07T12:20:00",
+	  "attachments":[array of file names],
+	  from
+	  reportGeneratedBy
+	  cc
+	  subject
+    },
+    "id": "16f71517-1124-43b7-bebe-6387999a87b1",
+    "type": "add"
+  },
+  {
+    "fields": {      
+	  "_type": "checkins",
+      "address": "Manjalpur 1",
+	  "user" : "ronak",
+	  "additional_id": "16f71517-1124-43b7-bebe-6387999a87bd",
+      "additional_jobid": "16f71517-1124-43b7-bebe-6387999a87bd",
+	  "additional_jobtitle": "Job 1",
+	  "additional_teamname": "Corpac",
+	  "additional_teamicon": "3d rotation",
+	  "updateddatetime" : "2017-04-07T12:20:00", -- related with entity	  
+	  lat
+	  long
+    },
+    "id": "16f71517-1124-43b7-bebe-6387999a87b3",
+    "type": "add"
+  },
+  {
+    "fields": {      
+	  "_type": "media",
+      "address": "Manjalpur 1",
+	  "notes": "Manjalpur 1",	  
+	  "user" : "ronak",
+	  "additional_id": "16f71517-1124-43b7-bebe-6387999a87bd",
+	  "additional_jobpageid": "16f71517-1124-43b7-bebe-6387999a87bd",
+      "additional_jobid": "16f71517-1124-43b7-bebe-6387999a87bd",
+	  "additional_jobtitle": "Job 1",
+	  "additional_teamname": "Corpac",
+	  "additional_teamicon": "3d rotation",
+	  "updateddatetime" : "2017-04-07T12:20:00", -- related with entity,
+	  "MediaType" : "4"//string of enum value,
+	  "content":""
+    },
+    "id": "16f71517-1124-43b7-bebe-6387999a87b3",
+    "type": "add"
+  },
+  {
+    "fields": {      
+	  "_type": "attachments",
+      "filename": "Bulk_Import.xlxs",
+	  "additional_id": "16f71517-1124-43b7-bebe-6387999a87bd",
+      "additional_jobid": "16f71517-1124-43b7-bebe-6387999a87bd",
+	  "additional_jobtitle": "Job 1",
+	  "additional_teamname": "Corpac",
+	  "additional_teamicon": "3d rotation",
+	  "updateddatetime" : "2017-04-07T12:20:00", -- related with entity,
+	  "mailCommentId":""
+	  "content":""
+    },"16f71517-1124-43b7-bebe-6387999a87b3",
+    "type
+    "id": ": "add"
+  }
+]
