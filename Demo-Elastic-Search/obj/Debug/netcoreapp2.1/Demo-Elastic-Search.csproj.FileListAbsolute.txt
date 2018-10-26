@@ -1,0 +1,11 @@
+C:\Users\ronaks\source\repos\Demo-Elastic-Search\Demo-Elastic-Search\bin\Debug\netcoreapp2.1\Demo-Elastic-Search.deps.json
+C:\Users\ronaks\source\repos\Demo-Elastic-Search\Demo-Elastic-Search\bin\Debug\netcoreapp2.1\Demo-Elastic-Search.runtimeconfig.json
+C:\Users\ronaks\source\repos\Demo-Elastic-Search\Demo-Elastic-Search\bin\Debug\netcoreapp2.1\Demo-Elastic-Search.runtimeconfig.dev.json
+C:\Users\ronaks\source\repos\Demo-Elastic-Search\Demo-Elastic-Search\bin\Debug\netcoreapp2.1\Demo-Elastic-Search.dll
+C:\Users\ronaks\source\repos\Demo-Elastic-Search\Demo-Elastic-Search\obj\Debug\netcoreapp2.1\Demo-Elastic-Search.csprojAssemblyReference.cache
+C:\Users\ronaks\source\repos\Demo-Elastic-Search\Demo-Elastic-Search\obj\Debug\netcoreapp2.1\Demo-Elastic-Search.csproj.CoreCompileInputs.cache
+C:\Users\ronaks\source\repos\Demo-Elastic-Search\Demo-Elastic-Search\obj\Debug\netcoreapp2.1\Demo-Elastic-Search.AssemblyInfoInputs.cache
+C:\Users\ronaks\source\repos\Demo-Elastic-Search\Demo-Elastic-Search\obj\Debug\netcoreapp2.1\Demo-Elastic-Search.AssemblyInfo.cs
+C:\Users\ronaks\source\repos\Demo-Elastic-Search\Demo-Elastic-Search\bin\Debug\netcoreapp2.1\Demo-Elastic-Search.pdb
+C:\Users\ronaks\source\repos\Demo-Elastic-Search\Demo-Elastic-Search\obj\Debug\netcoreapp2.1\Demo-Elastic-Search.dll
+C:\Users\ronaks\source\repos\Demo-Elastic-Search\Demo-Elastic-Search\obj\Debug\netcoreapp2.1\Demo-Elastic-Search.pdb
