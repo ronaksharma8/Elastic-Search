@@ -9,3 +9,14 @@ C:\Users\ronaks\source\repos\Demo-Elastic-Search\Demo-Elastic-Search\obj\Debug\n
 C:\Users\ronaks\source\repos\Demo-Elastic-Search\Demo-Elastic-Search\bin\Debug\netcoreapp2.1\Demo-Elastic-Search.pdb
 C:\Users\ronaks\source\repos\Demo-Elastic-Search\Demo-Elastic-Search\obj\Debug\netcoreapp2.1\Demo-Elastic-Search.dll
 C:\Users\ronaks\source\repos\Demo-Elastic-Search\Demo-Elastic-Search\obj\Debug\netcoreapp2.1\Demo-Elastic-Search.pdb
+C:\projects\Elastic-Search\Demo-Elastic-Search\bin\Debug\netcoreapp2.1\Demo-Elastic-Search.deps.json
+C:\projects\Elastic-Search\Demo-Elastic-Search\bin\Debug\netcoreapp2.1\Demo-Elastic-Search.runtimeconfig.json
+C:\projects\Elastic-Search\Demo-Elastic-Search\bin\Debug\netcoreapp2.1\Demo-Elastic-Search.runtimeconfig.dev.json
+C:\projects\Elastic-Search\Demo-Elastic-Search\bin\Debug\netcoreapp2.1\Demo-Elastic-Search.dll
+C:\projects\Elastic-Search\Demo-Elastic-Search\bin\Debug\netcoreapp2.1\Demo-Elastic-Search.pdb
+C:\projects\Elastic-Search\Demo-Elastic-Search\obj\Debug\netcoreapp2.1\Demo-Elastic-Search.csprojAssemblyReference.cache
+C:\projects\Elastic-Search\Demo-Elastic-Search\obj\Debug\netcoreapp2.1\Demo-Elastic-Search.csproj.CoreCompileInputs.cache
+C:\projects\Elastic-Search\Demo-Elastic-Search\obj\Debug\netcoreapp2.1\Demo-Elastic-Search.AssemblyInfoInputs.cache
+C:\projects\Elastic-Search\Demo-Elastic-Search\obj\Debug\netcoreapp2.1\Demo-Elastic-Search.AssemblyInfo.cs
+C:\projects\Elastic-Search\Demo-Elastic-Search\obj\Debug\netcoreapp2.1\Demo-Elastic-Search.dll
+C:\projects\Elastic-Search\Demo-Elastic-Search\obj\Debug\netcoreapp2.1\Demo-Elastic-Search.pdb
