@@ -1,8 +1,8 @@
 {    
 	  "type" : "Job",
-      "title": "Job 1",
-      "description": "Test Job Description",      
-      "address": " E 90 Saujanya Society Opp Bhavan School",
+    "title": "Job 1",
+    "description": "Test Job Description",      
+    "address": " E 90 Saujanya Society Opp Bhavan School",
 	  "teamName": "Corpac",
 	  "jobStatus": "inprogress",	  
 	  "teamId":"16f71517-1124-43b7-bebe-6387999a87bd",
@@ -12,7 +12,7 @@
 	  "createdBy":"ABC",
 	  "updatedById":"16f71517-1124-43b7-bebe-6387999a87bd",
 	  "updatedBy":"XYZ",
-      "createdDateTime" : "2017-04-07T12:20:00",
+    "createdDateTime" : "2017-04-07T12:20:00",
 	  "updatedDateTime" : "2017-04-07T12:20:00",
 	  "usedIn" : [{
 		"type" : "CheckIn",
@@ -28,10 +28,10 @@
 					"createdBy":"ABC", //doubt
 					"updatedId":"16f71517-1124-43b7-bebe-6387999a87bd",
 					"updatedBy":"XYZ",
-					"createddatetime" : "2017-04-07T12:20:00"
+					"createddatetime" : "2017-04-07T12:20:00",
 					"updateddatetime" : "2017-04-07T12:20:00",				
 					"lat" : "20.232",
-					"long" : "23.251", 
+					"long" : "23.251" 
 		}]
 	  }]
   }

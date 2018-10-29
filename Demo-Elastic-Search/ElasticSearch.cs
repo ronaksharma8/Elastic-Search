@@ -4,6 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Demo_Elastic_Search.ApplicationClasses;
+using System.Collections;
+using System.Xml.Linq;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace Demo_Elastic_Search
 {
@@ -109,7 +113,7 @@ namespace Demo_Elastic_Search
             string search = "test";
             var resSearch = client.Search<dynamic>(s => s
                     .AllIndices()
-                    .AllTypes()
+                    .AllTypes().Size(10)
                     .Query(q => q
                         .QueryString(qs => qs.Query(search))));
 
@@ -118,8 +122,49 @@ namespace Demo_Elastic_Search
                 var returnObj = new { Time = string.Format("{0} {1}", resSearch.Took, " ms"), Document = resSearch.Hits, Count = resSearch.Total };
             }
 
-            // code to add
+            // code to give json output to mobile end..
+            ArrayList lstObject = new ArrayList();
+            foreach (var doc in resSearch.Hits)
+            {
+                switch (doc.Index)
+                {
+                    case "forms2":
+                        var sss = JsonConvert.DeserializeObject<Form>(JObject.Parse(doc.Source));
+                        var ss = JObject.Parse(doc.Source);
+                        lstObject.Add((Form)doc.Source);
+                        break;
+                    case "jobs2":
+                        lstObject.Add((ApplicationClasses.Job)doc.Source);
+                        break;
+                    case "mailcomments2":
+                        lstObject.Add((MailComment)doc.Source);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            foreach (var item in lstObject)
+            {
+                //if (item is ApplicationClasses.Job)
+                //{
+                //    ProcessJobEntity(item, lstObject);
+                //}
+
+                //switch (item.GetType)
+                //{
+                //    case GetType(ApplicationClasses.Job):
+                //        break;
+                //    default:
+                //        break;
+                //}
+            }
         }
+
+        //public ApplicationClasses.Job ProcessJobEntity(ApplicationClasses.Job job, ArrayList lstDocuments)
+        //{
+
+        //}
 
         public static void CreateJobIndexMapping(ElasticClient client)
         {

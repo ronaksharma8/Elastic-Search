@@ -1,6 +1,6 @@
 {    
-      "type": "Asset",      
-      "title": "Job Page 1",	  
+    "type": "Asset",      
+    "title": "Job Page 1",	  
 	  "data":["col1.value","col2.value","col3.value"],
 	  "columns":["col1","col2","col3","col4"],	  
 	  "fieldsInJson": [{
@@ -9,10 +9,10 @@
 		"property": "Coating Items",
 		"field": "OD",
 		"value": "OD"
-	  }]  
+	  }],  
 	  "teamname": "Corpac",	  
 	  "additional_id": "16f71517-1124-43b7-bebe-6387999a87bd",
-      "additional_formid": "16f71517-1124-43b7-bebe-6387999a87bd",
+    "additional_formid": "16f71517-1124-43b7-bebe-6387999a87bd",
 	  "additional_formtitle": "Asset Form Name",
 	  "additional_teamId": "16f71517-1124-43b7-bebe-6387999a87bd",	  
 	  "additional_teamicon": "https://devapps.visualogyx.com/team-icon.png",	  
