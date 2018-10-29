@@ -23,12 +23,12 @@
 			"propertyNames":['prop 1','prop 2','prop 3'],
 			"fieldPlaceholders":['prop 1','prop 2','prop 3'],	 
 			"fields":["tab1.sec1.prop1.value1","tab1.sec1.prop1.field1","tab2.sec2.prop3.field4"],
-			"fieldsInJson": {
+			"fieldsInJson": [{
 				"tab": "tab1",
 				"section": "Xyz",
 				"field": "OD",
 				"value": "OD"
-			},	  
+			}],	  
 			"teamname": "Corpac",			
 			"id": "16f71517-1124-43b7-bebe-6387999a87bd",
 			"jobid": "16f71517-1124-43b7-bebe-6387999a87bd",
@@ -42,5 +42,5 @@
 			"createddatetime" : "2017-04-07T12:20:00",
 			"updateddatetime" : "2017-04-07T12:20:00",
 		}]
-	  }
+	  }]
   }

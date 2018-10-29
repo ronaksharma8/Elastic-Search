@@ -34,12 +34,12 @@
 			"propertyNames":['prop 1','prop 2','prop 3'],
 			"fieldPlaceholders":['prop 1','prop 2','prop 3'],	 
 			"fields":["tab1.sec1.prop1.value1","tab1.sec1.prop1.field1","tab2.sec2.prop3.field4"],
-			"fieldsInJson": {
+			"fieldsInJson": [{
 				"tab": "tab1",
 				"section": "Xyz",
 				"field": "OD",
 				"value": "OD"
-			},	  
+			}],	  
 			"teamname": "Corpac",			
 			"id": "16f71517-1124-43b7-bebe-6387999a87bd",
 			"jobid": "16f71517-1124-43b7-bebe-6387999a87bd",
@@ -63,12 +63,12 @@
 			"propertyNames":['prop 1','prop 2','prop 3'],
 			"fieldPlaceholders":['prop 1','prop 2','prop 3'],	 
 			"fields":["tab1.sec1.prop1.value1","tab1.sec1.prop1.field1","tab2.sec2.prop3.field4"],
-			"fieldsInJson": {
+			"fieldsInJson": [{
 				"tab": "tab1",
 				"section": "Xyz",
 				"field": "OD",
 				"value": "OD"
-			},	  
+			}],	  
 			"teamname": "Corpac",			
 			"id": "16f71517-1124-43b7-bebe-6387999a87bd",
 			"jobid": "16f71517-1124-43b7-bebe-6387999a87bd",
@@ -85,15 +85,73 @@
 	  },
 	  {
 		"type" : "MailComments",
-		"key" : [{}]
+		"key" : [{
+					"message": "mail message 1",	  
+					"fromEmail" : "abc1@mailinator.com",	  
+					"cc" : ["abc1@mailinator.com","abc2@mailinator.com"],
+					"attachments":["File1.xlxs,File2.docx"],
+					"subject" : "Subject_Mail_Comments",					
+					"id": "16f71517-1124-43b7-bebe-6387999a87bd",
+					"jobId": "16f71517-1124-43b7-bebe-6387999a87bd",
+					"jobTitle": "Job 1",
+					"teamId": "Corpac",
+					"teamName": "Corpac",
+					"teamIcon": "https://devapps.visualogyx.com/team-icon.png",					
+					"fromUserId" : "abc1@mailinator.com",
+					"reportGeneratedById":"16f71517-1124-43b7-bebe-6387999a87bd",
+					"reportGeneratedBy":"ABC",					
+					"createdDateTime" : "2017-04-07",
+					"updatedDateTime" : "2017-04-07"
+		}]
 	  },
 	  {
 		"type" : "CheckIn",
-		"key" : [{}]
+		"key" : [{
+					"address": "Manjalpur 1",
+					"id": "16f71517-1124-43b7-bebe-6387999a87bd",
+					"jobid": "16f71517-1124-43b7-bebe-6387999a87bd",
+					"jobtitle": "Job 1",
+					"teamId": "16f71517-1124-43b7-bebe-6387999a87bd",
+					"teamname": "Corpac",
+					"teamicon": "https://devapps.visualogyx.com/team-icon.png",					
+					"createdId":"16f71517-1124-43b7-bebe-6387999a87bd",
+					"createdBy":"ABC", //doubt
+					"updatedId":"16f71517-1124-43b7-bebe-6387999a87bd",
+					"updatedBy":"XYZ",
+					"createddatetime" : "2017-04-07T12:20:00"
+					"updateddatetime" : "2017-04-07T12:20:00",				
+					"lat" : "20.232",
+					"long" : "23.251", 
+		}]
 	  },
 	  {
 		"type" : "JobPages",
-		"key" : [{}]
+		"key" : [{
+			"title": "Job Page 1",	  
+			"tabNames":['prop 1','prop 2','prop 3'],
+			"sectionNames":['prop 1','prop 2','prop 3'],
+			"propertyNames":['prop 1','prop 2','prop 3'],
+			"fieldPlaceholders":['prop 1','prop 2','prop 3'],	 
+			"fields":["tab1.sec1.prop1.value1","tab1.sec1.prop1.field1","tab2.sec2.prop3.field4"],
+			"fieldsInJson": [{
+				"tab": "tab1",
+				"section": "Xyz",
+				"field": "OD",
+				"value": "OD"
+			}],	  
+			"teamname": "Corpac",			
+			"id": "16f71517-1124-43b7-bebe-6387999a87bd",
+			"jobid": "16f71517-1124-43b7-bebe-6387999a87bd",
+			"jobtitle": "Job 1",
+			"teamId": "16f71517-1124-43b7-bebe-6387999a87bd",	  
+			"teamicon": "https://devapps.visualogyx.com/team-icon.png",			
+			"createdId":"16f71517-1124-43b7-bebe-6387999a87bd",
+			"createdBy":"ABC",
+			"updatedId":"16f71517-1124-43b7-bebe-6387999a87bd",
+			"updatedBy":"XYZ",
+			"createddatetime" : "2017-04-07T12:20:00",
+			"updateddatetime" : "2017-04-07T12:20:00",
+		}]
 	  },
 	  ]
   }

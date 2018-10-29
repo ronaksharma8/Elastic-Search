@@ -117,6 +117,8 @@ namespace Demo_Elastic_Search
             {
                 var returnObj = new { Time = string.Format("{0} {1}", resSearch.Took, " ms"), Document = resSearch.Hits, Count = resSearch.Total };
             }
+
+            // code to add
         }
 
         public static void CreateJobIndexMapping(ElasticClient client)

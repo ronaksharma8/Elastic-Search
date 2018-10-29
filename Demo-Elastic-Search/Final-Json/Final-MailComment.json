@@ -19,8 +19,8 @@
 		"key" : [{
 					"message": "mail message 1",	  
 					"fromEmail" : "abc1@mailinator.com",	  
-					"cc" : ['abc1@mailinator.com','abc2@mailinator.com'],
-					"attachments":[array of file names],
+					"cc" : ["abc1@mailinator.com","abc2@mailinator.com"],
+					"attachments":["File1.xlxs,File2.docx"],
 					"subject" : "Subject_Mail_Comments",					
 					"id": "16f71517-1124-43b7-bebe-6387999a87bd",
 					"jobId": "16f71517-1124-43b7-bebe-6387999a87bd",
@@ -34,5 +34,5 @@
 					"createdDateTime" : "2017-04-07",
 					"updatedDateTime" : "2017-04-07"
 		}]
-	  }
+	  }]
   }
