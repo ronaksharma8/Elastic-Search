@@ -22,7 +22,6 @@
   "usedIn": [
     {
       "type": "Job",
-      "name": "Job Title",
       "key": [
         {
           "type": "Job",

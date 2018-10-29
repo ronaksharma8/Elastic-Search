@@ -8,6 +8,7 @@ using System.Collections;
 using System.Xml.Linq;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace Demo_Elastic_Search
 {
@@ -117,42 +118,39 @@ namespace Demo_Elastic_Search
                     .Query(q => q
                         .QueryString(qs => qs.Query(search))));
 
-            if (resSearch.Hits.Count > 0)
-            {
-                var returnObj = new { Time = string.Format("{0} {1}", resSearch.Took, " ms"), Document = resSearch.Hits, Count = resSearch.Total };
-            }
+            //if (resSearch.Hits.Count > 0)
+            //{
+            //    var returnObj = new { Time = string.Format("{0} {1}", resSearch.Took, " ms"), Document = resSearch.Hits, Count = resSearch.Total };
+            //}
 
-            // code to give json output to mobile end..
-            ArrayList lstObject = new ArrayList();
-            foreach (var doc in resSearch.Hits)
+            // code to give json output to mobile end....
+            var filteredList = resSearch.Documents.Select(doc =>
             {
-                switch (doc.Index)
+                switch (doc.type.ToString().ToLower())
                 {
-                    case "forms2":                        
-                        lstObject.Add(JsonConvert.DeserializeObject<Form>(doc.Source.ToString()));
-                        break;
-                    case "jobs2":
-                        lstObject.Add(JsonConvert.DeserializeObject<ApplicationClasses.Job>(doc.Source.ToString()));
-                        break;
-                    case "mailcomments2":
-                        lstObject.Add(JsonConvert.DeserializeObject<MailComment>(doc.Source.ToString()));
-                        break;
-                    default:
-                        break;
-                }
-            }
+                    case "form":
+                        return JsonConvert.DeserializeObject<Form>(doc.ToString());
 
-            foreach (var item in lstObject)
+                    case "job":
+                        return JsonConvert.DeserializeObject<ApplicationClasses.Job>(doc.ToString());
+
+                    default:
+                        return JsonConvert.DeserializeObject<MailComment>(doc.ToString());
+                }
+            }).ToList();
+
+            foreach (var item in filteredList)
             {
                 if (item is ApplicationClasses.Job)
                 {
-                    ProcessJobEntity((ApplicationClasses.Job)item, lstObject);
+                    ProcessJobEntity((ApplicationClasses.Job)item, filteredList);
                 }
             }
         }
 
-        public static ApplicationClasses.Job ProcessJobEntity(ApplicationClasses.Job job, ArrayList lstDocuments)
+        public static ApplicationClasses.Job ProcessJobEntity(ApplicationClasses.Job job, List<dynamic> lstDocuments)
         {
+            var lstMailComments = lstDocuments.Where(p => p.Additional_jobId == job.Additional_id && p.Type.ToString().ToLower() == "mail comment").ToList();
 
             return new ApplicationClasses.Job();
         }
