@@ -128,16 +128,14 @@ namespace Demo_Elastic_Search
             {
                 switch (doc.Index)
                 {
-                    case "forms2":
-                        var sss = JsonConvert.DeserializeObject<Form>(JObject.Parse(doc.Source));
-                        var ss = JObject.Parse(doc.Source);
-                        lstObject.Add((Form)doc.Source);
+                    case "forms2":                        
+                        lstObject.Add(JsonConvert.DeserializeObject<Form>(doc.Source.ToString()));
                         break;
                     case "jobs2":
-                        lstObject.Add((ApplicationClasses.Job)doc.Source);
+                        lstObject.Add(JsonConvert.DeserializeObject<ApplicationClasses.Job>(doc.Source.ToString()));
                         break;
                     case "mailcomments2":
-                        lstObject.Add((MailComment)doc.Source);
+                        lstObject.Add(JsonConvert.DeserializeObject<MailComment>(doc.Source.ToString()));
                         break;
                     default:
                         break;
@@ -146,25 +144,18 @@ namespace Demo_Elastic_Search
 
             foreach (var item in lstObject)
             {
-                //if (item is ApplicationClasses.Job)
-                //{
-                //    ProcessJobEntity(item, lstObject);
-                //}
-
-                //switch (item.GetType)
-                //{
-                //    case GetType(ApplicationClasses.Job):
-                //        break;
-                //    default:
-                //        break;
-                //}
+                if (item is ApplicationClasses.Job)
+                {
+                    ProcessJobEntity((ApplicationClasses.Job)item, lstObject);
+                }
             }
         }
 
-        //public ApplicationClasses.Job ProcessJobEntity(ApplicationClasses.Job job, ArrayList lstDocuments)
-        //{
+        public static ApplicationClasses.Job ProcessJobEntity(ApplicationClasses.Job job, ArrayList lstDocuments)
+        {
 
-        //}
+            return new ApplicationClasses.Job();
+        }
 
         public static void CreateJobIndexMapping(ElasticClient client)
         {
