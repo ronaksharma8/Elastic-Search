@@ -36,34 +36,32 @@
       "name": "OverView",
       "entity": [
         {
-          {
-            "title": "Job Page 1",
-            "tabNames": [ "prop 1", "prop 2", "prop 3" ],
-            "sectionNames": [ "prop 1", "prop 2", "prop 3" ],
-            "propertyNames": [ "prop 1", "prop 2", "prop 3" ],
-            "fieldPlaceholders": [ "prop 1", "prop 2", "prop 3" ],
-            "fields": [ "tab1.sec1.prop1.value1", "tab1.sec1.prop1.field1", "tab2.sec2.prop3.field4" ],
-            "fieldsInJson": [
-              {
-                "tab": "tab1",
-                "section": "Xyz",
-                "field": "OD",
-                "value": "OD"
-              }
-            ],
-            "teamname": "Corpac",
-            "id": "16f71517-1124-43b7-bebe-6387999a87bd",
-            "jobid": "16f71517-1124-43b7-bebe-6387999a87bd",
-            "jobtitle": "Job 1",
-            "teamId": "16f71517-1124-43b7-bebe-6387999a87bd",
-            "teamicon": "https://devapps.visualogyx.com/team-icon.png",
-            "createdId": "16f71517-1124-43b7-bebe-6387999a87bd",
-            "createdBy": "ABC",
-            "updatedId": "16f71517-1124-43b7-bebe-6387999a87bd",
-            "updatedBy": "XYZ",
-            "createddatetime": "2017-04-07T12:20:00",
-            "updateddatetime": "2017-04-07T12:20:00"
-          }
+          "title": "Job Page 1",
+          "tabNames": [ "prop 1", "prop 2", "prop 3" ],
+          "sectionNames": [ "prop 1", "prop 2", "prop 3" ],
+          "propertyNames": [ "prop 1", "prop 2", "prop 3" ],
+          "fieldPlaceholders": [ "prop 1", "prop 2", "prop 3" ],
+          "fields": [ "tab1.sec1.prop1.value1", "tab1.sec1.prop1.field1", "tab2.sec2.prop3.field4" ],
+          "fieldsInJson": [
+            {
+              "tab": "tab1",
+              "section": "Xyz",
+              "field": "OD",
+              "value": "OD"
+            }
+          ],
+          "teamname": "Corpac",
+          "id": "16f71517-1124-43b7-bebe-6387999a87bd",
+          "jobid": "16f71517-1124-43b7-bebe-6387999a87bd",
+          "jobtitle": "Job 1",
+          "teamId": "16f71517-1124-43b7-bebe-6387999a87bd",
+          "teamicon": "https://devapps.visualogyx.com/team-icon.png",
+          "createdId": "16f71517-1124-43b7-bebe-6387999a87bd",
+          "createdBy": "ABC",
+          "updatedId": "16f71517-1124-43b7-bebe-6387999a87bd",
+          "updatedBy": "XYZ",
+          "createddatetime": "2017-04-07T12:20:00",
+          "updateddatetime": "2017-04-07T12:20:00"
         }
       ]
     },

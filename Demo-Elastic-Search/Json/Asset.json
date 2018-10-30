@@ -1,26 +1,33 @@
-{    
-    "type": "Asset",      
-    "title": "Job Page 1",	  
-	  "data":["col1.value","col2.value","col3.value"],
-	  "columns":["col1","col2","col3","col4"],	  
-	  "fieldsInJson": [{
-		"tab": "tab1",
-		"section": "Xyz",
-		"property": "Coating Items",
-		"field": "OD",
-		"value": "OD"
-	  }],  
-	  "teamname": "Corpac",	  
-	  "additional_id": "16f71517-1124-43b7-bebe-6387999a87bd",
-    "additional_formid": "16f71517-1124-43b7-bebe-6387999a87bd",
-	  "additional_formtitle": "Asset Form Name",
-	  "additional_teamId": "16f71517-1124-43b7-bebe-6387999a87bd",	  
-	  "additional_teamicon": "https://devapps.visualogyx.com/team-icon.png",	  
-	  "additional_createdId":"16f71517-1124-43b7-bebe-6387999a87bd",
-	  "additional_createdBy":"ABC",
-	  "additional_updatedId":"16f71517-1124-43b7-bebe-6387999a87bd",
-	  "additional_updatedBy":"XYZ",
-      "additional_createddatetime" : "2017-04-07T12:20:00",
-	  "additional_updateddatetime" : "2017-04-07T12:20:00",	  
-      "formtype": "userform"
+{
+  "type": "Asset",
+  "title": "Job Page 1",
+  "data": [ "col1.value", "col2.value", "col3.value" ],
+  "columns": [ "col1", "col2", "col3", "col4" ],
+  "fieldsInJson": [
+    {
+      "tab": "tab1",
+      "section": "Xyz",
+      "property": "Coating Items",
+      "field": "OD",
+      "value": "OD"
+    }
+  ],
+  "teamname": "Corpac",
+  "additional_id": "16f71517-1124-43b7-bebe-6387999a87bd",
+  "additional_formId": "16f71517-1124-43b7-bebe-6387999a87bd",
+  "additional_formTitle": "Asset Form Name",
+  "additional_formCreatedById": "16f71517-1124-43b7-bebe-6387999a87bd",
+  "additional_formCreatedBy": "ABC",
+  "additional_formUpdatedById": "16f71517-1124-43b7-bebe-6387999a87bd",
+  "additional_formUpdatedBy": "BAC",
+  "additional_formCreatedDateTime": "2017-04-07",
+  "additional_formUpdatedDateTime": "2017-04-07",
+  "additional_teamId": "16f71517-1124-43b7-bebe-6387999a87bd",
+  "additional_teamicon": "https://devapps.visualogyx.com/team-icon.png",
+  "additional_createdById": "16f71517-1124-43b7-bebe-6387999a87bd",
+  "additional_createdBy": "ABC",
+  "additional_updatedById": "16f71517-1124-43b7-bebe-6387999a87bd",
+  "additional_updatedBy": "XYZ",
+  "additional_createdDateTime": "2017-04-07T12:20:00",
+  "additional_updatedDateTime": "2017-04-07T12:20:00"  
 }

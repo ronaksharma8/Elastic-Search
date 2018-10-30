@@ -9,6 +9,8 @@ using System.Xml.Linq;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.Linq;
+using Demo_Elastic_Search.Enum;
+using Demo_Elastic_Search.ApplicationClasses.OutputClasses;
 
 namespace Demo_Elastic_Search
 {
@@ -31,8 +33,8 @@ namespace Demo_Elastic_Search
 
             var mailComment = new MailComment()
             {
-                Type = "Mail comments",
-                Message = "mail message 1",
+                Type = EntityType.MailComment.ToString(),
+                Message = "Test mail message 1",
                 FromEmail = "abc1@mailinator.com",
                 CC = new string[] { "abc1@mailinator.com", "abc2@mailinator.com" },
                 Attachments = new string[] { "File1.xlz", "File_Image.xlxs" },
@@ -57,7 +59,7 @@ namespace Demo_Elastic_Search
             // code for job addition..
             var job = new ApplicationClasses.Job()
             {
-                Type = "Job",
+                Type = EntityType.Job.ToString(),
                 Title = "Job 1",
                 Description = "Test Job Description",
                 Address = "E 90 Saujanya Society Opp Bhavan School",
@@ -84,7 +86,7 @@ namespace Demo_Elastic_Search
             // code for form addition..
             var form = new Form()
             {
-                Type = "Job",
+                Type = EntityType.Form.ToString(),
                 Title = "Job 1",
                 Description = "Test Job Description",
                 TeamName = "Corpac",
@@ -111,46 +113,71 @@ namespace Demo_Elastic_Search
                        .Type("form"));
 
             // code for search..
+            var type = EntityType.Job;
+            var pageno = 1;
+            var from = ((pageno - 1) * 10);
             string search = "test";
-            var resSearch = client.Search<dynamic>(s => s
-                    .AllIndices()
-                    .AllTypes().Size(10)
-                    .Query(q => q
-                        .QueryString(qs => qs.Query(search))));
 
-            //if (resSearch.Hits.Count > 0)
-            //{
-            //    var returnObj = new { Time = string.Format("{0} {1}", resSearch.Took, " ms"), Document = resSearch.Hits, Count = resSearch.Total };
-            //}
+            var resSearch = client.Search<dynamic>(s => s
+                     .AllIndices()
+                     .AllTypes()
+                     .Size(10)
+                     .From(from)
+                     .Query(q => q
+                         .QueryString(qs => qs.Query(search))));
+
 
             // code to give json output to mobile end....
             var filteredList = resSearch.Documents.Select(doc =>
             {
-                switch (doc.type.ToString().ToLower())
+                switch (doc.type.ToString())
                 {
-                    case "form":
-                        return JsonConvert.DeserializeObject<Form>(doc.ToString());
+                    case nameof(EntityType.Form):
+                        return JsonConvert.DeserializeObject<FormAc>(doc.ToString());
+                    case nameof(EntityType.Job):
+                        return JsonConvert.DeserializeObject<JobAc>(doc.ToString());
+                    case nameof(EntityType.JobPage):
+                        return JsonConvert.DeserializeObject<JobPageAc>(doc.ToString());
+                    case nameof(EntityType.Asset):
+                        return JsonConvert.DeserializeObject<AssetAc>(doc.ToString());
+                    case nameof(EntityType.Attachment):
+                        return JsonConvert.DeserializeObject<AttachmentAc>(doc.ToString());
+                    case nameof(EntityType.CheckIn):
+                        return JsonConvert.DeserializeObject<CheckInAc>(doc.ToString());
 
-                    case "job":
-                        return JsonConvert.DeserializeObject<ApplicationClasses.Job>(doc.ToString());
-
+                    case nameof(EntityType.Image):
+                        return JsonConvert.DeserializeObject<MediaAc>(doc.ToString());
+                    case nameof(EntityType.Audio):
+                        return JsonConvert.DeserializeObject<MediaAc>(doc.ToString());
+                    case nameof(EntityType.Video):
+                        return JsonConvert.DeserializeObject<MediaAc>(doc.ToString());
                     default:
-                        return JsonConvert.DeserializeObject<MailComment>(doc.ToString());
+                        return JsonConvert.DeserializeObject<MailCommentAc>(doc.ToString());
                 }
             }).ToList();
 
             foreach (var item in filteredList)
             {
-                if (item is ApplicationClasses.Job)
+                if (item is JobAc)
                 {
-                    ProcessJobEntity((ApplicationClasses.Job)item, filteredList);
+                    ProcessJobEntity(item, filteredList);
                 }
             }
         }
 
-        public static ApplicationClasses.Job ProcessJobEntity(ApplicationClasses.Job job, List<dynamic> lstDocuments)
+        public static ApplicationClasses.Job ProcessJobEntity(JobAc jobAc, List<dynamic> lstDocuments)
         {
-            var lstMailComments = lstDocuments.Where(p => p.Additional_jobId == job.Additional_id && p.Type.ToString().ToLower() == "mail comment").ToList();
+            var lstMailComments = lstDocuments.Where(p => p.Additional_jobId == jobAc.Id && p.Type.ToString() == EntityType.MailComment.ToString()).ToList();
+
+            var lstMailCommentAc = lstMailComments.Select(doc =>
+            {
+                return JsonConvert.DeserializeObject<MailCommentAc>(doc.ToString());
+            }).ToList();
+
+            if (lstMailComments.Any())
+            {
+                jobAc.MailComments = lstMailComments;
+            }
 
             return new ApplicationClasses.Job();
         }
