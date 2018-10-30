@@ -96,7 +96,7 @@ namespace Demo_Elastic_Search
                 FieldPlaceholders = new string[] { "prop1", "prop2" },
                 FormType = "UserForm",
                 FormScope = "Public",
-                Additonal_icon = "https://devapps.visualogyx.com/team-icon.png",
+                Additional_icon = "https://devapps.visualogyx.com/team-icon.png",
                 Additional_id = "16f71517-1124-43b7-bebe-6387999a87bF",
                 Additional_teamId = "16f71517-1124-43b7-bebe-6387999a87bd",
                 Additional_teamIcon = "https://devapps.visualogyx.com/team-icon.png",
@@ -133,51 +133,58 @@ namespace Demo_Elastic_Search
                 switch (doc.type.ToString())
                 {
                     case nameof(EntityType.Form):
-                        return JsonConvert.DeserializeObject<FormAc>(doc.ToString());
+                        var formObj = JsonConvert.DeserializeObject<Form>(doc.ToString());
+                        return AutoMapper.Mapper.Map<FormAc>(formObj);
                     case nameof(EntityType.Job):
-                        return JsonConvert.DeserializeObject<JobAc>(doc.ToString());
+                        var jobObj = JsonConvert.DeserializeObject<ApplicationClasses.Job>(doc.ToString());
+                        return AutoMapper.Mapper.Map<JobAc>(jobObj);
                     case nameof(EntityType.JobPage):
-                        return JsonConvert.DeserializeObject<JobPageAc>(doc.ToString());
+                        var jobPageObj = JsonConvert.DeserializeObject<JobPage>(doc.ToString());
+                        return AutoMapper.Mapper.Map<JobPageAc>(jobPageObj);
                     case nameof(EntityType.Asset):
-                        return JsonConvert.DeserializeObject<AssetAc>(doc.ToString());
+                        var assetObj = JsonConvert.DeserializeObject<Asset>(doc.ToString());
+                        return AutoMapper.Mapper.Map<AssetAc>(assetObj);
                     case nameof(EntityType.Attachment):
-                        return JsonConvert.DeserializeObject<AttachmentAc>(doc.ToString());
+                        var attachmentObj = JsonConvert.DeserializeObject<ApplicationClasses.Attachment>(doc.ToString());
+                        return AutoMapper.Mapper.Map<AttachmentAc>(attachmentObj);
                     case nameof(EntityType.CheckIn):
-                        return JsonConvert.DeserializeObject<CheckInAc>(doc.ToString());
-
+                        var checkInObj = JsonConvert.DeserializeObject<CheckIn>(doc.ToString());
+                        return AutoMapper.Mapper.Map<CheckInAc>(checkInObj);
                     case nameof(EntityType.Image):
-                        return JsonConvert.DeserializeObject<MediaAc>(doc.ToString());
                     case nameof(EntityType.Audio):
-                        return JsonConvert.DeserializeObject<MediaAc>(doc.ToString());
                     case nameof(EntityType.Video):
-                        return JsonConvert.DeserializeObject<MediaAc>(doc.ToString());
+                        var mediaObj = JsonConvert.DeserializeObject<Media>(doc.ToString());
+                        return AutoMapper.Mapper.Map<MediaAc>(mediaObj);                    
                     default:
-                        return JsonConvert.DeserializeObject<MailCommentAc>(doc.ToString());
+                        var mailCommentObj = JsonConvert.DeserializeObject<MailComment>(doc.ToString());
+                        return AutoMapper.Mapper.Map<MailCommentAc>(mailCommentObj);
                 }
             }).ToList();
 
-            foreach (var item in filteredList)
+            for (int i = 0; i < filteredList.Count; i++)
             {
+                var item = filteredList[i];
                 if (item is JobAc)
                 {
                     ProcessJobEntity(item, filteredList);
                 }
             }
+
+           
         }
 
         public static ApplicationClasses.Job ProcessJobEntity(JobAc jobAc, List<dynamic> lstDocuments)
         {
-            var lstMailComments = lstDocuments.Where(p => p.Additional_jobId == jobAc.Id && p.Type.ToString() == EntityType.MailComment.ToString()).ToList();
-
-            var lstMailCommentAc = lstMailComments.Select(doc =>
-            {
-                return JsonConvert.DeserializeObject<MailCommentAc>(doc.ToString());
-            }).ToList();
+            var lstMailComments = lstDocuments.Where(p => p.JobId == jobAc.Id && p.Type.ToString() == EntityType.MailComment.ToString()).ToList();
 
             if (lstMailComments.Any())
             {
                 jobAc.MailComments = lstMailComments;
             }
+
+            // code to remove lstMailComments
+            //lstDocuments.RemoveRange(lstMailComments);
+            var ll = lstDocuments.RemoveAll(p => p.Additional_jobId == jobAc.Id && p.Type.ToString() == EntityType.MailComment.ToString());
 
             return new ApplicationClasses.Job();
         }
@@ -262,7 +269,7 @@ namespace Demo_Elastic_Search
                                  .Name(e => e.Additional_updatedDateTime)
                                  .Index(false))
                               .Text(s => s
-                                 .Name(e => e.Additonal_icon)
+                                 .Name(e => e.Additional_icon)
                                  .Index(false))
                                  ))));
         }

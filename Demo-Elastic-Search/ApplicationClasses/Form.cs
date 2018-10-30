@@ -15,6 +15,6 @@ namespace Demo_Elastic_Search.ApplicationClasses
         public string TeamName { get; set; }
         public string FormType { get; set; }
         public string FormScope { get; set; }        
-        public string Additonal_icon { get; set; }
+        public string Additional_icon { get; set; }
     }
 }
