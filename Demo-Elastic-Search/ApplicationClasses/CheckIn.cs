@@ -7,8 +7,8 @@ namespace Demo_Elastic_Search.ApplicationClasses
     public class CheckIn : Base
     {
         public string Address { get; set; }
-        public string Additional_teamName { get; set; }
-        public string Additional_lat { get; set; }
-        public string Additional_long { get; set; }
+        public string AdditionalTeamName { get; set; }
+        public string AdditionalLatitude { get; set; }
+        public string AdditionalLongitude { get; set; }
     }
 }

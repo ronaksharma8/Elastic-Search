@@ -19,5 +19,6 @@ namespace Demo_Elastic_Search.ApplicationClasses.OutputClasses
         public string FormUpdatedBy { get; set; }
         public string FormCreatedDateTime { get; set; }
         public string FormUpdatedDateTime { get; set; }
+        public List<UsedIn> UsedIn { get; set; }
     }
 }

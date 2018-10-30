@@ -9,19 +9,19 @@ namespace Demo_Elastic_Search.ApplicationClasses
         public string Address { get; set; }
         public string Notes { get; set; }
         public string Content { get; set; }
-        public string Additional_mediaType { get; set; }
-        public string Additional_audioUrl { get; set; }
-        public string Additional_imageUrl { get; set; }
-        public string Additional_videoUrl { get; set; }
-        public string Additional_videoThumbNailUrl { get; set; }
-        public string Additional_shortenUrl { get; set; }
-        public string Additional_latitude { get; set; }
-        public string Additional_longtitude { get; set; }
-        public string Additional_size { get; set; }
-        public string Additional_duration { get; set; }
-        public string Additional_mediaLatitude { get; set; }
-        public string Additional_mediaLongtitude { get; set; }
-        public string Additional_mediaLocation { get; set; }
-        public string Additional_mediaBreadCrumb { get; set; }
+        public string AdditionalMediaType { get; set; }
+        public string AdditionalAudioUrl { get; set; }
+        public string AdditionalImageUrl { get; set; }
+        public string AdditionalVideoUrl { get; set; }
+        public string AdditionalVideoThumbNailUrl { get; set; }
+        public string AdditionalShortenUrl { get; set; }
+        public string AdditionalLatitude { get; set; }
+        public string AdditionalLongtitude { get; set; }
+        public string AdditionalSize { get; set; }
+        public string AdditionalDuration { get; set; }
+        public string AdditionalMediaLatitude { get; set; }
+        public string AdditionalMediaLongtitude { get; set; }
+        public string AdditionalMediaLocation { get; set; }
+        public string AdditionalMediaBreadCrumb { get; set; }
     }
 }

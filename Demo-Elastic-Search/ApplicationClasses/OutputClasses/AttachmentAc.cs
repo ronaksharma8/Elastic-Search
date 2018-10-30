@@ -13,5 +13,6 @@ namespace Demo_Elastic_Search.ApplicationClasses.OutputClasses
         public double FileSize { get; set; }
         public string FileUrl { get; set; }
         public string ShortenUrl { get; set; }
+        public List<UsedIn> UsedIn { get; set; }
     }
 }

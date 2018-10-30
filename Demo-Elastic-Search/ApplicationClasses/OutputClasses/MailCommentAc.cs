@@ -16,5 +16,6 @@ namespace Demo_Elastic_Search.ApplicationClasses.OutputClasses
         public string FromUserId { get; set; }
         public string ReportGeneratedById { get; set; }
         public string ReportGeneratedBy { get; set; }
+        public List<UsedIn> UsedIn { get; set; }
     }
 }

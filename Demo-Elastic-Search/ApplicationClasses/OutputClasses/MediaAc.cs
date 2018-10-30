@@ -23,5 +23,6 @@ namespace Demo_Elastic_Search.ApplicationClasses.OutputClasses
         public string MediaLongtitude { get; set; }
         public string MediaLocation { get; set; }
         public string MediaBreadCrumb { get; set; }
+        public List<UsedIn> UsedIn { get; set; }
     }
 }

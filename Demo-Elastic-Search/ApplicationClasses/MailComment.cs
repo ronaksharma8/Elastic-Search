@@ -11,10 +11,9 @@ namespace Demo_Elastic_Search.ApplicationClasses
         public string[] CC { get; set; }
         public string[] Attachments { get; set; }
         public string Subject { get; set; }
+        public string ReportGeneratedBy { get; set; }
 
-        public string Additional_teamName { get; set; }
-        public string Additional_fromUserId { get; set; }
-        public string Additional_reportGeneratedById { get; set; }
-        public string Additional_reportGeneratedBy { get; set; }
+        public string AdditionalFromUserId { get; set; }
+        public string AdditionalReportGeneratedById { get; set; }        
     }
 }

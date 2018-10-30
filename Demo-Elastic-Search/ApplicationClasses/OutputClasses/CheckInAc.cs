@@ -10,5 +10,6 @@ namespace Demo_Elastic_Search.ApplicationClasses.OutputClasses
         public string TeamName { get; set; }
         public string Lat { get; set; }
         public string Long { get; set; }
+        public List<UsedIn> UsedIn { get; set; }
     }
 }

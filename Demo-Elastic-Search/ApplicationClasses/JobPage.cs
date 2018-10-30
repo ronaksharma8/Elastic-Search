@@ -5,7 +5,7 @@ using System.Text;
 namespace Demo_Elastic_Search.ApplicationClasses
 {
     public class JobPage : Base
-    {        
+    {
         public string Title { get; set; }
         public string[] TabNames { get; set; }
         public string[] SectionNames { get; set; }
@@ -13,8 +13,8 @@ namespace Demo_Elastic_Search.ApplicationClasses
         public string[] FieldPlaceholders { get; set; }
         public string[] Fields { get; set; }
         public List<FieldsInJson> FieldsInJson { get; set; }
-        public string TeamName { get; set; }        
-        public string Formtype { get; set; }        
+        public string TeamName { get; set; }
+        public string Formtype { get; set; }
     }
 
     public class FieldsInJson

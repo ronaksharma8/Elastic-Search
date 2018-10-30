@@ -29,4 +29,11 @@ namespace Demo_Elastic_Search.ApplicationClasses.OutputClasses
         public DateTime CreatedDateTime { get; set; }
         public DateTime UpdatedDateTime { get; set; }
     }
+
+    public class UsedIn
+    {
+        public string Type { get; set; }
+        public string Name { get; set; }
+        public dynamic Entity { get; set; }
+    }
 }

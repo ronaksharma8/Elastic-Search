@@ -15,6 +15,7 @@ namespace Demo_Elastic_Search.ApplicationClasses.OutputClasses
         public List<FieldsInJsonAc> FieldsInJson { get; set; }
         public string TeamName { get; set; }
         public string Formtype { get; set; }
+        public List<UsedIn> UsedIn { get; set; }
     }
 
     public class FieldsInJsonAc

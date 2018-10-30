@@ -16,5 +16,6 @@ namespace Demo_Elastic_Search.ApplicationClasses.OutputClasses
         public string FormType { get; set; }
         public string FormScope { get; set; }
         public string Icon { get; set; }
+        public List<UsedIn> UsedIn { get; set; }
     }
 }
