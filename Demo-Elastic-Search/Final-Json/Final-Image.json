@@ -17,8 +17,9 @@
   "usedIn": [
     {
       "type": "Task",
-      "key": [
+      "entity": [
         {
+          "type": "Image",
           "address": "Manjalpur 1",
           "notes": "Manjalpur 1",
           "content": "",

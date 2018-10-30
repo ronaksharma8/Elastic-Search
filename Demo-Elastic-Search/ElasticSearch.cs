@@ -112,10 +112,11 @@ namespace Demo_Elastic_Search
                        .Index("forms2")
                        .Type("form"));
 
+
             // code for search..
-            var type = EntityType.Job;
-            var pageno = 1;
-            var from = ((pageno - 1) * 10);
+            var type = EntityType.Job.ToString();
+            var pageNo = 1;
+            var from = ((pageNo - 1) * 10);
             string search = "test";
 
             var resSearch = client.Search<dynamic>(s => s
@@ -154,7 +155,7 @@ namespace Demo_Elastic_Search
                     case nameof(EntityType.Audio):
                     case nameof(EntityType.Video):
                         var mediaObj = JsonConvert.DeserializeObject<Media>(doc.ToString());
-                        return AutoMapper.Mapper.Map<MediaAc>(mediaObj);                    
+                        return AutoMapper.Mapper.Map<MediaAc>(mediaObj);
                     default:
                         var mailCommentObj = JsonConvert.DeserializeObject<MailComment>(doc.ToString());
                         return AutoMapper.Mapper.Map<MailCommentAc>(mailCommentObj);
@@ -166,27 +167,56 @@ namespace Demo_Elastic_Search
                 var item = filteredList[i];
                 if (item is JobAc)
                 {
-                    ProcessJobEntity(item, filteredList);
+                    ProcessJobEntity(item, ref filteredList);
+                }
+                else if (item is FormAc)
+                {
+
                 }
             }
-
-           
         }
 
-        public static ApplicationClasses.Job ProcessJobEntity(JobAc jobAc, List<dynamic> lstDocuments)
+        public static void ProcessJobEntity(JobAc jobAc, ref List<dynamic> lstDocuments)
         {
+            #region "MailComments"
             var lstMailComments = lstDocuments.Where(p => p.JobId == jobAc.Id && p.Type.ToString() == EntityType.MailComment.ToString()).ToList();
 
             if (lstMailComments.Any())
             {
                 jobAc.MailComments = lstMailComments;
             }
+            lstDocuments.RemoveAll(p => p.JobId == jobAc.Id && p.Type.ToString() == EntityType.MailComment.ToString());
+            #endregion
 
-            // code to remove lstMailComments
-            //lstDocuments.RemoveRange(lstMailComments);
-            var ll = lstDocuments.RemoveAll(p => p.Additional_jobId == jobAc.Id && p.Type.ToString() == EntityType.MailComment.ToString());
+            #region "CheckIns"
+            var lstCheckIns = lstDocuments.Where(p => p.JobId == jobAc.Id && p.Type.ToString() == EntityType.CheckIn.ToString()).ToList();
 
-            return new ApplicationClasses.Job();
+            if (lstCheckIns.Any())
+            {
+                jobAc.CheckIn = lstCheckIns;
+            }
+            lstDocuments.RemoveAll(p => p.JobId == jobAc.Id && p.Type.ToString() == EntityType.CheckIn.ToString());
+            #endregion
+
+            #region "Overview"
+            var lstOverview = lstDocuments.Where(p => p.JobId == jobAc.Id && p.Type.ToString() == EntityType.Overview.ToString()).ToList();
+
+            if (lstOverview.Any())
+            {
+                jobAc.Overview = lstOverview;
+            }
+            lstDocuments.RemoveAll(p => p.JobId == jobAc.Id && p.Type.ToString() == EntityType.Overview.ToString());
+            #endregion
+
+            #region "Conclusion"
+            var lstConclusion = lstDocuments.Where(p => p.JobId == jobAc.Id && p.Type.ToString() == EntityType.Conclusion.ToString()).ToList();
+
+            if (lstConclusion.Any())
+            {
+                jobAc.Overview = lstConclusion;
+            }
+            lstDocuments.RemoveAll(p => p.JobId == jobAc.Id && p.Type.ToString() == EntityType.Conclusion.ToString());
+            #endregion
         }
 
         public static void CreateJobIndexMapping(ElasticClient client)

@@ -15,6 +15,10 @@ namespace Demo_Elastic_Search.Enum
         Attachment=6,
         Image=7,
         Audio=8,
-        Video=9
+        Video=9,
+        Overview=10,
+        Conclusion=11,
+        Agents=12,
+        All
     }
 }

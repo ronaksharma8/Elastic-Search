@@ -23,7 +23,7 @@
     {
       "type": "Job",
       "name": "Job 1",
-      "key": [
+      "entity": [
         {
           "type": "Job",
           "title": "Job 1",
@@ -51,7 +51,7 @@
     {
       "type": "Job",
       "name": "Job 2",
-      "key": [
+      "entity": [
         {
           "type": "Job",
           "title": "Job 2",

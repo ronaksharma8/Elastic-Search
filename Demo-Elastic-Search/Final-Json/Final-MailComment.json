@@ -17,7 +17,7 @@
   "usedIn": [
     {
       "type": "MailComment",
-      "key": [
+      "entity": [
         {
           "message": "mail message 1",
           "fromEmail": "abc1@mailinator.com",

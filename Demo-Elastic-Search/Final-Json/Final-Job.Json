@@ -33,9 +33,10 @@
     },
     {
       "type": "Overview",
-      "name": "OverView",
+      "name": "Overview",
       "entity": [
         {
+          "type": "JobPage",
           "title": "Job Page 1",
           "tabNames": [ "prop 1", "prop 2", "prop 3" ],
           "sectionNames": [ "prop 1", "prop 2", "prop 3" ],
@@ -70,7 +71,7 @@
       "name": "Conclusion",
       "entity": [
         {
-
+          "type": "JobPage",
           "title": "Job Page 1",
           "tabNames": [ "prop 1", "prop 2", "prop 3" ],
           "sectionNames": [ "prop 1", "prop 2", "prop 3" ],
@@ -101,10 +102,11 @@
       ]
     },
     {
-      "type": "MailComments",
+      "type": "MailComment",
       "name": "Mail Comments",
       "entity": [
         {
+          "type": "MailComment",
           "message": "mail message 1",
           "fromEmail": "abc1@mailinator.com",
           "cc": [ "abc1@mailinator.com", "abc2@mailinator.com" ],
@@ -129,6 +131,7 @@
       "name": "Check Ins",
       "entity": [
         {
+          "type": "CheckIn",
           "address": "Manjalpur 1",
           "id": "16f71517-1124-43b7-bebe-6387999a87bd",
           "jobid": "16f71517-1124-43b7-bebe-6387999a87bd",
@@ -148,10 +151,11 @@
       ]
     },
     {
-      "type": "JobPages",
+      "type": "JobPage",
       "name": "Job Pages",
       "entity": [
         {
+          "type": "JobPage",
           "title": "Job Page 1",
           "tabNames": [ "prop 1", "prop 2", "prop 3" ],
           "sectionNames": [ "prop 1", "prop 2", "prop 3" ],

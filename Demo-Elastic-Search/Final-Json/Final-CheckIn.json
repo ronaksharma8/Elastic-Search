@@ -17,7 +17,7 @@
   "usedIn": [
     {
       "type": "CheckIn",
-      "key": [
+      "entity": [
         {
           "address": "Manjalpur 1",
           "id": "16f71517-1124-43b7-bebe-6387999a87bd",
