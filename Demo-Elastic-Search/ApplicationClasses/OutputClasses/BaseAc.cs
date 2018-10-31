@@ -13,8 +13,10 @@ namespace Demo_Elastic_Search.ApplicationClasses.OutputClasses
 
         public string JobId { get; set; }
         public string JobTitle { get; set; }
+        public string JobDescription { get; set; }
+        public string JobAddress { get; set; }
         public string JobCreatedDateTime { get; set; }
-        public string JobUpdateDateTime { get; set; }
+        public string JobUpdatedDateTime { get; set; }
 
         public string TeamId { get; set; }
         public string TeamIcon { get; set; }
@@ -26,8 +28,8 @@ namespace Demo_Elastic_Search.ApplicationClasses.OutputClasses
         public string CreatedBy { get; set; }
         public string UpdatedById { get; set; }
         public string UpdatedBy { get; set; }
-        public DateTime CreatedDateTime { get; set; }
-        public DateTime UpdatedDateTime { get; set; }
+        public string CreatedDateTime { get; set; }
+        public string UpdatedDateTime { get; set; }
     }
 
     public class UsedIn

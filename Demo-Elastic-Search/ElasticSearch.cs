@@ -200,8 +200,19 @@ namespace Demo_Elastic_Search
 
         public static JobAc ProcessMailComments(MailCommentAc mailComment, List<dynamic> lstFilteredMailComment)
         {
-            //var groupedList = lstFilteredMailComment.GroupBy(x => x.JobId == mailComment.JobId).ToList();
-            //var lstMailComments = groupedList[mailComment.JobId];
+            var groupedList = lstFilteredMailComment.GroupBy(x => x.JobId == mailComment.JobId).ToList();
+            var lstMailComments = groupedList.Where(p => p.Key == mailComment.JobId);
+
+            var jobAc = new JobAc();
+            jobAc.Id = mailComment.JobId;
+            jobAc.Title = mailComment.JobTitle;
+            jobAc.Address = mailComment.JobAddress;
+            jobAc.JobCreatedDateTime = mailComment.JobCreatedDateTime;
+            jobAc.JobUpdatedDateTime = mailComment.JobUpdatedDateTime;
+            jobAc.TeamName = mailComment.TeamName;
+            jobAc.TeamIcon = mailComment.TeamIcon;
+            jobAc.UpdatedBy = mailComment.Job;
+
             //foreach (var item in groupedList)
             //{
             //    var jobId = item.Key;

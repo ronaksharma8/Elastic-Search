@@ -11,6 +11,8 @@ namespace Demo_Elastic_Search.ApplicationClasses
         public string AdditionalId { get; set; }
         public string AdditionalJobId { get; set; }
         public string AdditionalJobTitle { get; set; }
+        public string AdditionalJobDescription { get; set; }
+        public string AdditionalJobAddress { get; set; }
         public string AdditionalJobUpdatedBy { get; set; }
         public DateTime AdditionalJobUpdatedDateTime { get; set; }
         public DateTime AdditionalJobCreatedDateTime { get; set; }
