@@ -12,11 +12,40 @@
   "createdBy": "ABC",
   "updatedById": "16f71517-1124-43b7-bebe-6387999a87bd",
   "updatedBy": "XYZ",
-  "createdDateTime": "2017-04-07T12:20:00",
-  "updatedDateTime": "2017-04-07T12:20:00",
+  "createdDateTime": "2017-04-07 12:20:00",
+  "updatedDateTime": "2017-04-07 12:20:00",
   "usedIn": [
     {
       "type": "Attachment",
+      "name": "Attachment",
+      "entity": [
+        {
+          "type": "Attachment",
+          "name": "Attachment",
+          "filename": "Bulk_Import.xlxs",
+          "content": "",
+          "id": "16f71517-1124-43b7-bebe-6387999a87bd",
+          "jobId": "16f71517-1124-43b7-bebe-6387999a87bd",
+          "jobTitle": "Job 1",
+          "teamId": "16f71517-1124-43b7-bebe-6387999a87bd",
+          "teamName": "Corpac",
+          "teamIcon": "https://devapps.visualogyx.com/team-icon.png",
+          "createdById": "16f71517-1124-43b7-bebe-6387999a87bd",
+          "createdBy": "ABC",
+          "updatedById": "16f71517-1124-43b7-bebe-6387999a87bd",
+          "updatedBy": "XYZ",
+          "createdDateTime": "2017-04-07 12:20:00",
+          "updatedDateTime": "2017-04-07 12:20:00",
+          "mailCommentId": "16f71517-1124-43b7-bebe-6387999a87b3",
+          "fileSize": 20.123,
+          "fileUrl": "7609-1F46-1F2D-4439/attachments/faa21a8f-b7fa-4ae5-9324-169270a1d5a5.xlsx",
+          "shortenUrl": "7609-1F46-1F2D-4439/attachments/faa21a8f-b7fa-4ae5-9324-169270a1d5a5.xlsx"
+        }
+      ]
+    },
+    {
+      "type": "Attachment",
+      "name": "Attachment",
       "entity": [
         {
           "type": "Attachment",
@@ -32,8 +61,8 @@
           "createdBy": "ABC",
           "updatedById": "16f71517-1124-43b7-bebe-6387999a87bd",
           "updatedBy": "XYZ",
-          "createdDateTime": "2017-04-07T12:20:00",
-          "updatedDateTime": "2017-04-07T12:20:00",
+          "createdDateTime": "2017-04-07 12:20:00",
+          "updatedDateTime": "2017-04-07 12:20:00",
           "mailCommentId": "16f71517-1124-43b7-bebe-6387999a87b3",
           "fileSize": 20.123,
           "fileUrl": "7609-1F46-1F2D-4439/attachments/faa21a8f-b7fa-4ae5-9324-169270a1d5a5.xlsx",

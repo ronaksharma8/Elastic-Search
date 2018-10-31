@@ -27,9 +27,9 @@ namespace Demo_Elastic_Search
                                      .RequestTimeout(TimeSpan.FromMinutes(2));
 
             var client = new ElasticClient(connectionSettings);
-            CreateJobIndexMapping(client);
-            CreateFormIndexMapping(client);
-            CreateMailCommentIndexMapping(client);
+            //CreateJobIndexMapping(client);
+            //CreateFormIndexMapping(client);
+            //CreateMailCommentIndexMapping(client);
 
             var mailComment = new MailComment()
             {
@@ -125,7 +125,9 @@ namespace Demo_Elastic_Search
                      .Size(10)
                      .From(from)
                      .Query(q => q
-                         .QueryString(qs => qs.Query(search))));
+                         .QueryString(qs => qs.Query(search)))
+                     .Highlight(h => h
+                        .Fields()));
 
 
             // code to give json output to mobile end....
@@ -162,6 +164,10 @@ namespace Demo_Elastic_Search
                 }
             }).ToList();
 
+
+            // code to filter jobs based on its valid job..
+
+
             var filteredJobList = filteredList.Where(p => p.Type == EntityType.Job.ToString()).ToList();
 
 
@@ -189,18 +195,19 @@ namespace Demo_Elastic_Search
                 }
             }
 
-            
+
         }
 
         public static JobAc ProcessMailComments(MailCommentAc mailComment, List<dynamic> lstFilteredMailComment)
         {
-            var groupedList = lstFilteredMailComment.GroupBy(x => x.JobId == mailComment.JobId).ToList();
-            foreach (var item in groupedList)
-            {
-                var jobId = item.Key;
+            //var groupedList = lstFilteredMailComment.GroupBy(x => x.JobId == mailComment.JobId).ToList();
+            //var lstMailComments = groupedList[mailComment.JobId];
+            //foreach (var item in groupedList)
+            //{
+            //    var jobId = item.Key;
 
-                var allJobsInCurrentJobId = item.ToList();
-            }
+            //    var allJobsInCurrentJobId = item.ToList();
+            //}
 
             return new JobAc();
         }

@@ -19,6 +19,6 @@ namespace Demo_Elastic_Search.Enum
         Overview=10,
         Conclusion=11,
         Agents=12,
-        All
+        All=13
     }
 }

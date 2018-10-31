@@ -12,11 +12,12 @@
   "createdBy": "ABC",
   "updatedById": "16f71517-1124-43b7-bebe-6387999a87bd",
   "updatedBy": "XYZ",
-  "createdDateTime": "2017-04-07T12:20:00",
-  "updatedDateTime": "2017-04-07T12:20:00",
+  "createdDateTime": "2017-04-07 12:20:00",
+  "updatedDateTime": "2017-04-07 12:20:00",
   "usedIn": [
     {
-      "type": "Task",
+      "type": "Audio",
+      "name": "Audio",
       "entity": [
         {
           "type": "Audio",
@@ -34,8 +35,8 @@
           "createdBy": "ABC",
           "updatedById": "16f71517-1124-43b7-bebe-6387999a87bd",
           "updatedBy": "XYZ",
-          "createdDateTime": "2017-04-07T12:20:00",
-          "updatedDateTime": "2017-04-07T12:20:00",
+          "createdDateTime": "2017-04-07 12:20:00",
+          "updatedDateTime": "2017-04-07 12:20:00",
           "mediaType": "audio",
           "audioUrl": "https://devapps.visualogyx.com/view/34BD-9819-43F9-438B/a0a29427-ae20-4c40-b026-b8c7f3108f81.jpg",
           "imageUrl": "",
@@ -50,7 +51,13 @@
           "mediaLongtitude": "80020",
           "mediaLocation": "80020",
           "mediaBreadCrumb": "80020"
-        },
+        }
+      ]
+    },
+    {
+      "type": "Video",
+      "name": "Video",
+      "entity": [
         {
           "type": "Video",
           "address": "Manjalpur 1",
@@ -67,8 +74,8 @@
           "createdBy": "ABC",
           "updatedById": "16f71517-1124-43b7-bebe-6387999a87bd",
           "updatedBy": "XYZ",
-          "createdDateTime": "2017-04-07T12:20:00",
-          "updatedDateTime": "2017-04-07T12:20:00",
+          "createdDateTime": "2017-04-07 12:20:00",
+          "updatedDateTime": "2017-04-07 12:20:00",
           "mediaType": "video",
           "audioUrl": "",
           "imageUrl": "",

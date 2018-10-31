@@ -12,13 +12,15 @@
   "createdBy": "ABC",
   "updatedById": "16f71517-1124-43b7-bebe-6387999a87bd",
   "updatedBy": "XYZ",
-  "createdDateTime": "2017-04-07T12:20:00",
-  "updatedDateTime": "2017-04-07T12:20:00",
+  "createdDateTime": "2017-04-07 12:20:00",
+  "updatedDateTime": "2017-04-07 12:20:00",
   "usedIn": [
     {
       "type": "CheckIn",
+      "name": "CheckIn",
       "entity": [
         {
+          "type": "CheckIn",
           "address": "Manjalpur 1",
           "id": "16f71517-1124-43b7-bebe-6387999a87bd",
           "jobId": "16f71517-1124-43b7-bebe-6387999a87bd",
@@ -30,8 +32,8 @@
           "createdBy": "ABC", //doubt
           "updatedById": "16f71517-1124-43b7-bebe-6387999a87bd",
           "updatedBy": "XYZ",
-          "createdDateTime": "2017-04-07T12:20:00",
-          "updatedDateTime": "2017-04-07T12:20:00",
+          "createdDateTime": "2017-04-07 12:20:00",
+          "updatedDateTime": "2017-04-07 12:20:00",
           "lat": "20.232",
           "long": "23.251"
         }
