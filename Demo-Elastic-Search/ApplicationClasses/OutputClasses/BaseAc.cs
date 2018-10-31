@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo_Elastic_Search.Enum;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -15,6 +16,8 @@ namespace Demo_Elastic_Search.ApplicationClasses.OutputClasses
         public string JobTitle { get; set; }
         public string JobDescription { get; set; }
         public string JobAddress { get; set; }
+        public string JobUpdatedBy { get; set; }
+
         public string JobCreatedDateTime { get; set; }
         public string JobUpdatedDateTime { get; set; }
 
@@ -36,6 +39,6 @@ namespace Demo_Elastic_Search.ApplicationClasses.OutputClasses
     {
         public string Type { get; set; }
         public string Name { get; set; }
-        public dynamic Entity { get; set; }
+        public List<dynamic> Entity { get; set; }
     }
 }

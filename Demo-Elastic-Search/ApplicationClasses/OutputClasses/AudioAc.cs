@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Demo_Elastic_Search.ApplicationClasses.OutputClasses
 {
-    public class MediaAc : BaseAc
+    public class AudioAc : BaseAc
     {
         public string Address { get; set; }
         public string Notes { get; set; }

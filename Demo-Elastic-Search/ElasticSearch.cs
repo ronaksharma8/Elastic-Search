@@ -154,10 +154,14 @@ namespace Demo_Elastic_Search
                         var checkInObj = JsonConvert.DeserializeObject<CheckIn>(doc.ToString());
                         return AutoMapper.Mapper.Map<CheckInAc>(checkInObj);
                     case nameof(EntityType.Image):
+                        var imageObj = JsonConvert.DeserializeObject<Media>(doc.ToString());
+                        return AutoMapper.Mapper.Map<ImageAc>(imageObj);
                     case nameof(EntityType.Audio):
+                        var audioObj = JsonConvert.DeserializeObject<AudioAc>(doc.ToString());
+                        return AutoMapper.Mapper.Map<MediaAc>(audioObj);
                     case nameof(EntityType.Video):
-                        var mediaObj = JsonConvert.DeserializeObject<Media>(doc.ToString());
-                        return AutoMapper.Mapper.Map<MediaAc>(mediaObj);
+                        var videoObj = JsonConvert.DeserializeObject<VideoAc>(doc.ToString());
+                        return AutoMapper.Mapper.Map<MediaAc>(videoObj);
                     default:
                         var mailCommentObj = JsonConvert.DeserializeObject<MailComment>(doc.ToString());
                         return AutoMapper.Mapper.Map<MailCommentAc>(mailCommentObj);
@@ -166,6 +170,15 @@ namespace Demo_Elastic_Search
 
 
             // code to filter jobs based on its valid job..
+            var groupedList = filteredList.GroupBy(x => x.JobId).ToList().Select(x=> new { JobId = x.Key, Jobs = x.ToList()});
+
+            var jobsWithId = groupedList.First(x => x.JobId == "16f71517-1124-43b7-bebe-6387999a87bd").Jobs;
+
+            var getKey = groupedList.Where(p => p.Key == "16f71517-1124-43b7-bebe-6387999a87bd").ToList();
+            if (getKey != null)
+            {
+                var asd = getKey[0];
+            }
 
 
             var filteredJobList = filteredList.Where(p => p.Type == EntityType.Job.ToString()).ToList();
@@ -184,6 +197,8 @@ namespace Demo_Elastic_Search
                 }
             }
 
+            
+
             var filteredMailComment = filteredList.Where(p => p.Type == EntityType.MailComment.ToString()).ToList();
 
             for (int index = 0; index < filteredList.Count; index++)
@@ -191,36 +206,62 @@ namespace Demo_Elastic_Search
                 var item = filteredList[index];
                 if (item is MailCommentAc)
                 {
-                    item = ProcessMailComments(item, filteredMailComment);
+                    item = ProcessJobWise(item, filteredMailComment);
+                }
+                else if (item is CheckInAc)
+                {
+                    item = ProcessJobWise(item, filteredMailComment);
+                }
+                else if (item is AttachmentAc)
+                {
+                    item = ProcessJobWise(item, filteredMailComment);
+                }
+                else if (item is ImageAc)
+                {
+                    item = ProcessJobWise(item, filteredMailComment);
+                }
+                else if (item is AudioAc)
+                {
+                    item = ProcessJobWise(item, filteredMailComment);
+                }
+                else if (item is VideoAc)
+                {
+                    item = ProcessJobWise(item, filteredMailComment);
                 }
             }
-
-
         }
 
-        public static JobAc ProcessMailComments(MailCommentAc mailComment, List<dynamic> lstFilteredMailComment)
+        public static JobAc ProcessJobWise(dynamic mailComment, List<dynamic> lstFilteredMailComment)
         {
             var groupedList = lstFilteredMailComment.GroupBy(x => x.JobId == mailComment.JobId).ToList();
             var lstMailComments = groupedList.Where(p => p.Key == mailComment.JobId);
 
-            var jobAc = new JobAc();
-            jobAc.Id = mailComment.JobId;
-            jobAc.Title = mailComment.JobTitle;
-            jobAc.Address = mailComment.JobAddress;
-            jobAc.JobCreatedDateTime = mailComment.JobCreatedDateTime;
-            jobAc.JobUpdatedDateTime = mailComment.JobUpdatedDateTime;
-            jobAc.TeamName = mailComment.TeamName;
-            jobAc.TeamIcon = mailComment.TeamIcon;
-            jobAc.UpdatedBy = mailComment.Job;
+            if (lstMailComments.Any())
+            {
+                var jobAc = new JobAc
+                {
+                    Id = mailComment.JobId,
+                    Title = mailComment.JobTitle,
+                    Description = mailComment.JobDescription,
+                    Address = mailComment.JobAddress,
 
-            //foreach (var item in groupedList)
-            //{
-            //    var jobId = item.Key;
+                    CreatedDateTime = mailComment.JobCreatedDateTime,
+                    UpdatedDateTime = mailComment.JobUpdatedDateTime,
+                    UpdatedBy = mailComment.JobUpdatedBy,
 
-            //    var allJobsInCurrentJobId = item.ToList();
-            //}
+                    TeamName = mailComment.TeamName,
+                    TeamIcon = mailComment.TeamIcon
+                };
 
-            return new JobAc();
+                foreach (var mailCommentItem in lstMailComments)
+                {
+                    jobAc.UsedIn.Add(new UsedIn() { Type = EntityType.MailComment.ToString(), Name = "Mail Comment", Entity = new List<dynamic>().Add((dynamic)mailComment) });
+                }
+
+                return jobAc;
+            }
+
+            return null;
         }
 
         public static FormAc ProcessFormEntity(FormAc formAc, List<dynamic> lstFilteredJobList)
