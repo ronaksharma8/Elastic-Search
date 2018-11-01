@@ -65,12 +65,12 @@ namespace Demo_Elastic_Search
                 Address = "E 90 Saujanya Society Opp Bhavan School",
                 TeamName = "Corpac",
                 JobStatus = "inprogress",
-                Contributors = new string[] { "abc", "asd" },
+                Contributors = new string[] { },
                 Viewers = new string[] { "abc", "asd" },
                 Inspectors = new string[] { "abc", "asd" },
-                AdditionalTeamId = "16f71517-1124-43b7-bebe-6387999a87bd",
+                AdditionalTeamId = "16f71517-1124-43b7-bebe-6387999a87b5",
                 AdditionalTeamIcon = "https://devapps.visualogyx.com/team-icon.png",
-                AdditionalId = "16f71517-1124-43b7-bebe-6387999a87bd",
+                AdditionalId = "16f71517-1124-43b7-bebe-6387999a87b5",
                 AdditionalCreatedById = "16f71517-1124-43b7-bebe-6387999a87bd",
                 AdditionalCreatedBy = "ABC",
                 AdditionalUpdatedById = "16f71517-1124-43b7-bebe-6387999a87bd",
@@ -115,14 +115,18 @@ namespace Demo_Elastic_Search
 
             // code for search..
             var type = EntityType.Job.ToString();
+            if (type == EntityType.All.ToString())
+            {
+                type = "_all";
+            }
             var pageNo = 1;
             var from = ((pageNo - 1) * 10);
-            string search = "test";
+            string search = "Test";
 
             // applied And operator because when search with Job Description it gives perfect result, when
             // applied OR operator it gave incorrect result.
             var resSearch = client.Search<dynamic>(s => s
-                     .AllIndices()
+                     .Index(type)
                      .AllTypes()
                      .Size(10)
                      .From(from)
