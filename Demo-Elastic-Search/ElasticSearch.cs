@@ -119,15 +119,20 @@ namespace Demo_Elastic_Search
             var from = ((pageNo - 1) * 10);
             string search = "test";
 
+            // applied And operator because when search with Job Description it gives perfect result, when
+            // applied OR operator it gave incorrect result.
             var resSearch = client.Search<dynamic>(s => s
                      .AllIndices()
                      .AllTypes()
                      .Size(10)
                      .From(from)
                      .Query(q => q
-                         .QueryString(qs => qs.Query(search)))
+                         .QueryString(qs => qs
+                            .Query(search)
+                            .DefaultOperator(Operator.And)))
                      .Highlight(h => h
-                        .Fields()));
+                        .Fields(p => p
+                            .AllField())));
 
 
             // code to give json output to mobile end....
@@ -157,11 +162,11 @@ namespace Demo_Elastic_Search
                         var imageObj = JsonConvert.DeserializeObject<Media>(doc.ToString());
                         return AutoMapper.Mapper.Map<ImageAc>(imageObj);
                     case nameof(EntityType.Audio):
-                        var audioObj = JsonConvert.DeserializeObject<AudioAc>(doc.ToString());
-                        return AutoMapper.Mapper.Map<MediaAc>(audioObj);
+                        var audioObj = JsonConvert.DeserializeObject<Media>(doc.ToString());
+                        return AutoMapper.Mapper.Map<AudioAc>(audioObj);
                     case nameof(EntityType.Video):
-                        var videoObj = JsonConvert.DeserializeObject<VideoAc>(doc.ToString());
-                        return AutoMapper.Mapper.Map<MediaAc>(videoObj);
+                        var videoObj = JsonConvert.DeserializeObject<Media>(doc.ToString());
+                        return AutoMapper.Mapper.Map<VideoAc>(videoObj);
                     default:
                         var mailCommentObj = JsonConvert.DeserializeObject<MailComment>(doc.ToString());
                         return AutoMapper.Mapper.Map<MailCommentAc>(mailCommentObj);
@@ -170,19 +175,9 @@ namespace Demo_Elastic_Search
 
 
             // code to filter jobs based on its valid job..
-            var groupedList = filteredList.GroupBy(x => x.JobId).ToList().Select(x=> new { JobId = x.Key, Jobs = x.ToList()});
-
-            var jobsWithId = groupedList.First(x => x.JobId == "16f71517-1124-43b7-bebe-6387999a87bd").Jobs;
-
-            var getKey = groupedList.Where(p => p.Key == "16f71517-1124-43b7-bebe-6387999a87bd").ToList();
-            if (getKey != null)
-            {
-                var asd = getKey[0];
-            }
 
 
             var filteredJobList = filteredList.Where(p => p.Type == EntityType.Job.ToString()).ToList();
-
 
             for (int index = 0; index < filteredList.Count; index++)
             {
@@ -193,74 +188,88 @@ namespace Demo_Elastic_Search
                 }
                 else if (item is FormAc)
                 {
+                    // here filteredJobList is passed because from that jobs only i need to search..
                     item = ProcessFormEntity(item, filteredJobList);
                 }
             }
 
-            
-
             var filteredMailComment = filteredList.Where(p => p.Type == EntityType.MailComment.ToString()).ToList();
+            var filteredCheckIn = filteredList.Where(p => p.Type == EntityType.CheckIn.ToString()).ToList();
+            var filteredAttachment = filteredList.Where(p => p.Type == EntityType.Attachment.ToString()).ToList();
+            var filteredImage = filteredList.Where(p => p.Type == EntityType.Image.ToString()).ToList();
+            var filteredAudio = filteredList.Where(p => p.Type == EntityType.Audio.ToString()).ToList();
+            var filteredVideo = filteredList.Where(p => p.Type == EntityType.Video.ToString()).ToList();
+
 
             for (int index = 0; index < filteredList.Count; index++)
             {
                 var item = filteredList[index];
                 if (item is MailCommentAc)
                 {
-                    item = ProcessJobWise(item, filteredMailComment);
+                    item = ProcessJobWise(item, ref filteredMailComment, EntityType.MailComment.ToString(), "Mail Comment");
+                    filteredList[index] = item;
                 }
                 else if (item is CheckInAc)
                 {
-                    item = ProcessJobWise(item, filteredMailComment);
+                    item = ProcessJobWise(item, ref filteredCheckIn, EntityType.CheckIn.ToString(), "CheckIn");
+                    filteredList[index] = item;
                 }
                 else if (item is AttachmentAc)
                 {
-                    item = ProcessJobWise(item, filteredMailComment);
+                    item = ProcessJobWise(item, ref filteredAttachment, EntityType.Attachment.ToString(), "Attachment");
+                    filteredList[index] = item;
                 }
                 else if (item is ImageAc)
                 {
-                    item = ProcessJobWise(item, filteredMailComment);
+                    item = ProcessJobWise(item, ref filteredImage, EntityType.Image.ToString(), "Image");
+                    filteredList[index] = item;
                 }
                 else if (item is AudioAc)
                 {
-                    item = ProcessJobWise(item, filteredMailComment);
+                    item = ProcessJobWise(item, ref filteredAudio, EntityType.Audio.ToString(), "Audio");
+                    filteredList[index] = item;
                 }
                 else if (item is VideoAc)
                 {
-                    item = ProcessJobWise(item, filteredMailComment);
+                    item = ProcessJobWise(item, ref filteredVideo, EntityType.Video.ToString(), "Video");
+                    filteredList[index] = item;
                 }
             }
         }
 
-        public static JobAc ProcessJobWise(dynamic mailComment, List<dynamic> lstFilteredMailComment)
+        public static JobAc ProcessJobWise(dynamic item, ref List<dynamic> lstFilteredItems, string type, string entityName)
         {
-            var groupedList = lstFilteredMailComment.GroupBy(x => x.JobId == mailComment.JobId).ToList();
-            var lstMailComments = groupedList.Where(p => p.Key == mailComment.JobId);
+            var groupedList = lstFilteredItems.GroupBy(x => x.JobId).ToList().Select(x => new { key = x.Key, lstItems = x.ToList() });
+            var getKeyObject = groupedList.FirstOrDefault(x => x.key == item.JobId);
 
-            if (lstMailComments.Any())
+            if (getKeyObject != null && getKeyObject.lstItems.Count > 0)
             {
                 var jobAc = new JobAc
                 {
-                    Id = mailComment.JobId,
-                    Title = mailComment.JobTitle,
-                    Description = mailComment.JobDescription,
-                    Address = mailComment.JobAddress,
+                    Type = type,
+                    Id = item.JobId,
+                    Title = item.JobTitle,
+                    Description = item.JobDescription,
+                    Address = item.JobAddress,
 
-                    CreatedDateTime = mailComment.JobCreatedDateTime,
-                    UpdatedDateTime = mailComment.JobUpdatedDateTime,
-                    UpdatedBy = mailComment.JobUpdatedBy,
+                    CreatedDateTime = item.JobCreatedDateTime,
+                    UpdatedDateTime = item.JobUpdatedDateTime,
+                    UpdatedBy = item.JobUpdatedBy,
 
-                    TeamName = mailComment.TeamName,
-                    TeamIcon = mailComment.TeamIcon
+                    TeamName = item.TeamName,
+                    TeamIcon = item.TeamIcon,
+                    UsedIn = new List<UsedIn>()
                 };
 
-                foreach (var mailCommentItem in lstMailComments)
+                foreach (var singleItem in getKeyObject.lstItems)
                 {
-                    jobAc.UsedIn.Add(new UsedIn() { Type = EntityType.MailComment.ToString(), Name = "Mail Comment", Entity = new List<dynamic>().Add((dynamic)mailComment) });
+                    jobAc.UsedIn.Add(new UsedIn() { Type = type, Name = entityName, Entity = new List<dynamic> { (dynamic)singleItem } });
                 }
+
+                lstFilteredItems.RemoveAll(x => x.JobId == item.JobId);
 
                 return jobAc;
             }
-
             return null;
         }
 

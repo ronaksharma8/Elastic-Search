@@ -13,11 +13,7 @@ namespace Demo_Elastic_Search.ApplicationClasses.OutputClasses
         public string JobStatus { get; set; }
         public string[] Contributors { get; set; }
         public string[] Viewers { get; set; }
-        public string[] Inspectors { get; set; }
-        //public List<dynamic> Overview { get; set; }
-        //public List<dynamic> Conclusion { get; set; }
-        //public List<dynamic> MailComments { get; set; }
-        //public List<dynamic> CheckIn { get; set; }
+        public string[] Inspectors { get; set; }      
         public List<UsedIn> UsedIn { get; set; }
     }
 }
